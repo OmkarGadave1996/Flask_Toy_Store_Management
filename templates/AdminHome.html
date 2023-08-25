@@ -1,0 +1,45 @@
+{%extends "showAllRecords.html"%}
+
+{%block content%}
+<script type="text/javascript">
+    function ShowConfirm(id)
+    {
+        ans = confirm("Are you sure you want to delete(y/n)?");
+        if(ans == true)
+        {
+            url= "http://127.0.0.1:5000/Remove/"+id;
+            window.location = url; 
+        }
+    }    
+</script>
+<div class="container">
+    <h1>Admin Items</h1>
+    <div class="row">
+        <center><a href="/AddRecord"><h3>Add Record</h3></a></center>
+        <p/>
+        <table class="table">
+        <tr><th>Toy Id</th>
+            <th>Toy Name</th>
+            <th>Price</th>
+            <th>image</th>
+            <th>Quantity</th>
+            <th>Images</th>
+            <th>Delete</th>
+            <th>Edit</th></tr>
+            {%for toy in toys%}
+            <tr>
+            <td>{{toy[0]}}</td>
+            <td>{{toy[1]}}</td>
+            <td>{{toy[2]}}</td>
+            <td>{{toy[4]}}</td>
+            <td>{{toy[3]}}</td>
+            <td><img src="/static/images/product/{{toy[4]}}" style="width: 100px;height: 100px;" alt="Image"></td>
+            <td><a href="edit/{{toy[0]}}" class="main-btn">Edit</a></td>
+            <td><button type="button" class="main-btn" onclick="ShowConfirm('{{toy[0]}}')">Remove</button></td>
+        </tr>
+        {%endfor%}
+
+    </table>
+    </div>
+</div>
+{%endblock%}

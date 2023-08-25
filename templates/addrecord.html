@@ -1,0 +1,24 @@
+{%extends "showAllRecords.html"%}
+
+{%block content%}
+<div class="container">
+<h1>Add Cake</h1>
+<form method="post" enctype ="multipart/form-data">
+<table class="table">
+    <tr><td>Enter Toy Name</td>
+        <td><input type="text" required class="form-control" name="tname"/></td></tr>
+    <tr><td>Enter Toy Price</td>
+        <td><input type="text" required class="form-control" name="price"/></td></tr>
+    <tr><td>Enter Quantity</td>
+        <td><input type="text" required class="form-control" name="qty"/></td></tr>
+    <tr><td>Toy Image</td>
+        <td><input type="file" required class="form-control" name="image"/></td></tr>
+    <tr>
+        <td>
+            <button class="main-btn">Add Record</button>
+        </td>
+    </tr>
+</table>
+</form>
+</div>
+{%endblock%}

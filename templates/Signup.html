@@ -1,0 +1,20 @@
+{%extends "showAllRecords.html"%}
+
+{%block content%}
+        <div class="container">
+            <h1>Sign Up!!</h1>
+            <form method="post">
+                <table   class="table">
+                    <tr><td>Enter Login Id</td>
+                        <td><input type="text" required class="form-control" name="uname"/></td></tr>
+                    <tr><td>Enter Password</td>
+                        <td><input type="password" required class="form-control" name="pwd"/></td></tr>
+                    <tr><td>Enter Email id</td>
+                        <td><input type="email" required class="form-control" name="email"/></td></tr>
+                    <tr><td>
+                        <button type="submit" class="main-btn">Sign Up</button>
+                    </td></tr>
+                </table>
+            </form>
+        </div>
+{%endblock%}

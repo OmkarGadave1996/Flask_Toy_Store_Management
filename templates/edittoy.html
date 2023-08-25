@@ -1,0 +1,24 @@
+{%extends "showAllRecords.html"%}
+
+{%block content%}
+<div class="container">
+    <h1>Edit Cake</h1>
+    <form method="post">
+    <table class="table">
+    <tr><td>Enter Toy Name</td>
+        <td><input type="text" required class="form-control" name="tname" value="{{toy[1]}}"/></td></tr>
+    <tr><td>Enter Toy Price</td>
+        <td><input type="text" required class="form-control" name="price" value="{{toy[2]}}"/></td></tr>
+    <tr><td>Enter Quantity</td>
+        <td><input type="text" required class="form-control" name="qty" value="{{toy[3]}}"/></td></tr>
+    <tr><td>Toy Image</td>
+        <td><input type="text" required class="form-control" name="image" value="{{toy[4]}}"/></td></tr>
+    <tr>
+        <td>
+            <button class="main-btn">Edit</button>
+        </td>
+    </tr>
+</table>
+</form>
+</div>
+{%endblock%}

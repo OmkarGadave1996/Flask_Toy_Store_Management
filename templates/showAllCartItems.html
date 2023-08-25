@@ -1,0 +1,54 @@
+{%extends "showAllRecords.html"%}
+
+{%block content%}
+<script type="text/javascript">
+    function increment(txtid)
+        {
+            //alert(txtid);
+            txtid=document.getElementById(txtid);
+            val = parseInt(txtid.value);
+            if(val<5)
+            {
+                val+=1;
+                txtid.value=val;
+            }
+        }
+    function decrement(txtid)
+        {
+            //alert(txtid);
+            txtid=document.getElementById(txtid);
+            val = parseInt(txtid.value);
+            if(val>=2)
+            {
+                val-=1;
+                txtid.value=val;
+            }
+        }
+</script>
+        <div class="container">
+            <h1>Show All Toys</h1>
+            <hr/>
+            <p></p>
+            <table class="table">
+            <tr><td>Toy Id</td><td>Toy Name</td><td>Price</td><td>Quantity</td><td>Images</td><td>Update Item</td><td>Remove Item</td></tr>
+            <form method="post" action="/updateItem">
+            {%for toy in toys%}
+            <tr><td>{{toy[0]}}<input type="hidden" name="Id" value="{{toy[0]}}"/></td>
+                <td>{{toy[1]}}</td>
+                <td>{{toy[2]}}</td>
+                <td>
+                <input type="button" id="decrements" onclick="decrement('qty{{toy[0]}}')" value="-"/>
+                <input type="text" name="qty" id="qty{{toy[0]}}" value="{{toy[4]}}" size="2" readonly/>
+                <input type="button" id="increments" onclick="increment('qty{{toy[0]}}')" value="+"/>
+                </td>
+                <td><img src="/static/images/product/{{toy[3]}}" height="100px" width="100px"/></td>
+                <td><input type="submit" name="action" value="Update" class="main-btn"/></td>
+                <td><a href="/RemoveItem/{{toy[0]}}">Remove</a></td></tr>
+            {%endfor%}
+            </form>
+            </table>
+            <h2>Total Amount = {{session["total"]}}</h2>
+            </p>
+            <a href="/MakePayment">Proceed to make payment</a>
+        </div>
+{%endblock%}

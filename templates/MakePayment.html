@@ -1,0 +1,23 @@
+{%extends "showAllRecords.html"%}
+
+{%block content%}
+        <div class="container">
+            <h1>Make payment</h1>
+        <hr/>
+        <p/>
+        <form method="post">
+            <table class="table">
+                <tr><td>Enter Card No.</td>
+                <td><input type="text" name="cardno" placeholder="Card Number" class="form-control"/></td></tr>
+                <tr><td>Enter Cvv</td>
+                <td><input type="text" name="cvv" placeholder="Enter Cvv" class="form-control"/></td></tr>
+                <tr><td>Enter Expiry Date</td>
+                <td><input type="text" name="expiry" placeholder="Enter expiry" class="form-control"/></td></tr>
+                <tr><td>Amount</td>
+                    <td><input type="text" name="amount" placeholder="{{session['total']}}" class="form-control" readonly/></td></tr>
+                <tr><td><input type="submit" class="white-btn" value="Make Payment"/></td>
+                <td></td></tr>
+            </table>
+        </form>
+        </div>
+{%endblock%}

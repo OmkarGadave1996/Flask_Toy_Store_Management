@@ -1,0 +1,28 @@
+{%extends "showAllRecords.html"%}
+
+{%block content%}
+        <div class="container">
+            <h1>View Details</h1>
+                <form method="post" action="/addToCart">
+                    <table class="table">
+                        <tr><td>Toy Name</td>
+                            <td>{{toy[1]}} <input type="hidden" name="Id" value="{{toy[0]}}"/></td></tr>
+                        <tr><td>Price</td>
+                            <td>{{toy[2]}}</td></tr>
+                        <tr><td>Select Quantity</td>
+                            <td><select name="qty">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                </select></td></tr>
+                        <tr><td>Toy Image</td>
+                            <td><img src="/static/images/product/{{toy[4]}}" style="height: 300px;width: 300px;"/></td></tr>
+                        <tr><td>
+                            <button type="submit" class="white-btn">Add To Cart</button>
+                        </td></tr>
+                    </table>
+                </form>
+        </div>
+{%endblock%}
